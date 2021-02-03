@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+</head>
+<body>
+
+    <script>
+            var x;
+            var qtd;
+            var acm = 0;
+            var entrega = 0;
+
+           alert('Produtos a comprar');
+           alert('Item 1 = R$150,00');
+           alert('Item 2 = R$100,00');
+           alert('Item 3 = R$228,00');
+            
+            console.log('Produtos a comprar');
+            console.log('Item 1 = R$150,00');
+            console.log('Item 2 = R$100,00');
+            console.log('Item 3 = R$228,00');
+
+            for(i = 0; i <= 2; i++){
+                //início do laço de repetição
+
+            x = prompt('Qual item deseja comprar ?');
+
+            if(x>=1 && x<=3){      
+                //condição para caso a pessoa digite que quer comprar itens que não existem
+
+                qtd = prompt('Qual a quantidade desse item vc deseja ?');
+  
+            //condições para validação
+        if(x == 1){
+            qtd = 150*qtd;
+            acm = qtd + acm;
+            entrega+=1;
+        }else if(x == 2){
+            qtd = (100 + (100*0.07))*qtd; 
+            acm = qtd + acm;
+        }else if(x == 3){
+            qtd = 228*qtd;
+            acm = qtd + acm;
+        }else{
+            console.log('erro');
+        }
+            //serve como o parâmetro para o for saber se finaliza o laço ou continua
+            if(i>0 && i<3){
+         i = prompt('deseja continuar comprando ? 1 = S / 2 = N'); }else{
+             alert('erro!!');
+         }
+    }else{
+    alert('erro!');
+        }
+}  
+    console.log('Total da compra: R$'+acm);
+
+    if(entrega>=1){
+    console.log('frete: R$15');
+
+    }else{
+        console.log('frete: R$5');
+    }
+
+        if(acm > 200 && entrega >=1){
+
+    var desconto = (acm-(acm*0.1))+15; //valor já com desconto de 10% e frete
+
+    console.log('Valor com desconto de 10% + o frete de R$15 = R$'+desconto);
+
+
+    }else if(acm < 200 && entrega >=1){
+
+        desconto = acm+15; //valor já com frete
+        console.log('Infelizmente sua compra não teve descontos por ser inferior a R$200.01 e sua compra ficou R$'+desconto);
+
+
+    }else if(acm < 200 && entrega < 1){
+        desconto = acm+5;
+        console.log('O valor de sua compra ficou R$'+desconto);
+    }else if(acm > 200 && entrega < 1){
+        desconto = (acm-(acm*0.1))+5;
+        console.log('Desconto de 10% nas compras acima de R$200.00 e o valor final R$'+desconto);
+    }else {
+        console.log('erro');
+    }
+
+
+
+
+    </script>
+    
+</body>
+</html>
